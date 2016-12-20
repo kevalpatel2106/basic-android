@@ -9,6 +9,7 @@ import rx.subjects.Subject;
 
 /**
  * Created by Keval on 17-Dec-16.
+ * Rx bus, a replacement of the event bus.
  *
  * @author {@link 'https://github.com/kevalpatel2106'}
  */
@@ -30,6 +31,13 @@ public class RxBus {
         mBusSubject.onNext(o);
     }
 
+    /**
+     * Register new event listener.
+     *
+     * @param eventClass event class.
+     * @param action1    event receiver
+     * @return new subscription.
+     */
     @SuppressWarnings("unchecked")
     public <T> Subscription register(final Class<T> eventClass, Action1<Object> action1) {
         return mBusSubject
