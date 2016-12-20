@@ -1,4 +1,4 @@
-package com.baseapplication.activity;
+package com.baseapplication.ui.activity;
 
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
