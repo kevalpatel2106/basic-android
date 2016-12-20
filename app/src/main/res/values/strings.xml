@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">BaseApplication</string>
+    <string name="app_name">BaseApplication</string><!--TODO change the application name-->
 </resources>
