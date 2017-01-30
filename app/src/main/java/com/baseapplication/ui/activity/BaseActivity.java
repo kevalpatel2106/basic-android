@@ -4,6 +4,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -11,6 +12,7 @@ import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by Keval on 17-Dec-16.
+ * This is the root class for the activity that extends {@link AppCompatActivity}.
  *
  * @author {@link 'https://github.com/kevalpatel2106'}
  */
@@ -49,6 +51,16 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+            return false;
+        }else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     /**

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">BaseApplication</string><!--TODO change the application name-->
+    <!--Title of the screens-->
+    <string name="title_home_activity">Home</string>
+
+    <!--TODO Remove strings-->
+    <item name="hello_world">Hello world!!!</item>
 </resources>

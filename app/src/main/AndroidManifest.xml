@@ -13,16 +13,23 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
+        <!--splash screen-->
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:configChanges="keyboard|orientation"
-            android:theme="@style/AppTheme">
+            android:name=".ui.activity.SplashScreen"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!--Home screen-->
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:label="@string/title_home_activity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
