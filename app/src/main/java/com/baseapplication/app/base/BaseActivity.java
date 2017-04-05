@@ -1,4 +1,4 @@
-package com.baseapplication.ui.activity;
+package com.baseapplication.app.base;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
@@ -40,7 +40,6 @@ public class BaseActivity extends AppCompatActivity {
 
         setToolbar(title);
     }
-
 
     /**
      * Set the actionbar of the activity.

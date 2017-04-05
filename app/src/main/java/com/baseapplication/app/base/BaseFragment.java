@@ -1,4 +1,4 @@
-package com.baseapplication.ui.fragment;
+package com.baseapplication.app.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

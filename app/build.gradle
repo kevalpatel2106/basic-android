@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 apply from: '../misc/config.gradle'
+apply from: '../misc/dependency.gradle'
 
 android {
     signingConfigs {
-        //This are th play sotre signing config.
+        //This are th play store signing config.
         //TODO replace with the original config.
         playStore {
             if (System.getenv("IS_CI_BUILD").equals("true")) {
@@ -34,6 +35,11 @@ android {
     compileSdkVersion buidlConfig.compile
     buildToolsVersion buidlConfig.buildToolVersion
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
     defaultConfig {
         applicationId buidlConfig.applicationId
 
@@ -45,7 +51,11 @@ android {
         versionCode versionConfig.versionCode
         versionName versionConfig.versionName
 
+        //strip other than english resources
+        resConfigs "en"
 
+        //Instrumentation test runner
+        testApplicationId buidlConfig.testApplicationId
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -70,18 +80,32 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     aaptOptions {
         cruncherEnabled = false
+        useNewCruncher false
     }
 }
 
 dependencies {
-    //Testing dependency
+    //Testing
     testCompile testDependency.junit
-    androidTestCompile testDependency.rules
-    androidTestCompile(testDependency.esspresso, {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    androidTestCompile(testDependency.rules, excludeGrp)
+    androidTestCompile(testDependency.esspresso, excludeGrp)
+    androidTestCompile(testDependency.runner, excludeGrp)
+    androidTestCompile(testDependency.esspressoIntents, excludeGrp)
+    androidTestCompile(testDependency.contrib, excludeGrp)
 
     //support dependency
     compile supportDependency.appCompat
