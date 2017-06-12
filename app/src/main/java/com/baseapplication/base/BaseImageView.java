@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.baseapplication.app.base;
+package com.baseapplication.base;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
@@ -22,6 +22,8 @@ import android.util.AttributeSet;
 
 /**
  * Created by Keval Patel on 04/03/17.
+ * This base class is to extend the functionality of {@link AppCompatImageView}. Use this class instead
+ * of {@link android.widget.ImageView} through out the application.
  *
  * @author 'https://github.com/kevalpatel2106'
  */

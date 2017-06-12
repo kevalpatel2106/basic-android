@@ -1,4 +1,4 @@
-package com.baseapplication.app;
+package com.baseapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,6 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //TODO Add logic for checking user login
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, Dashboard.class));
     }
 }

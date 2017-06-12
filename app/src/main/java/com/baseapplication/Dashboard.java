@@ -1,11 +1,9 @@
-package com.baseapplication.app;
+package com.baseapplication;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.baseapplication.R;
-
-public class HomeActivity extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

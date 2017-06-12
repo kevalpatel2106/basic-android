@@ -14,12 +14,10 @@
  * limitations under the License.
  ******************************************************************************/
 
-package com.baseapplication.managers;
+package com.baseapplication.utils;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-
-import com.baseapplication.dataProvider.SharedPrefsProvider;
 
 /**
  * Created by Keval on 24-Oct-16.

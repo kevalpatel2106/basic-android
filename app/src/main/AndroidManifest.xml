@@ -6,19 +6,24 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".MyApplication"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1"/>
 
         <!--splash screen-->
         <activity
-            android:name=".app.SplashScreen"
+            android:name=".SplashScreen"
             android:noHistory="true"
-            android:theme="@style/AppTheme.Splash">
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme.Translucent.NoBackground">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,8 +33,9 @@
 
         <!--Home screen-->
         <activity
-            android:name=".app.HomeActivity"
+            android:name=".Dashboard"
             android:label="@string/title_home_activity"
+            android:resizeableActivity="true"
             android:theme="@style/AppTheme"/>
     </application>
 </manifest>

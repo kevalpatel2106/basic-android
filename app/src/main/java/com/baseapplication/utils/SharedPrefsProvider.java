@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-package com.baseapplication.dataProvider;
+package com.baseapplication.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
