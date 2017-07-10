@@ -7,7 +7,7 @@ ext {
             min             : 16,                   //TODO Update min sdk
             target          : 25,
             compile         : 25,
-            buildToolVersion: '25.0.2',
+            buildToolVersion: '25.0.3',
             applicationId   : 'com.baseapplication' //TODO Update package name
     ]
 
