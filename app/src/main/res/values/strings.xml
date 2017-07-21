@@ -1,4 +1,5 @@
 <resources>
     <!--Title of the screens-->
     <string name="title_home_activity">Home</string>
+    <string name="package_name">com.baseapplication</string>
 </resources>
