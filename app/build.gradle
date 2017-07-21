@@ -100,6 +100,7 @@ dependencies {
     androidTestImplementation(testLib.runner, excludeGrp)
     androidTestImplementation(testLib.esspressoIntents, excludeGrp)
     androidTestImplementation(testLib.contrib, excludeGrp)
+    androidTestImplementation(testLib.uiAutomator, excludeGrp)
 
     //Butter knife
     implementation butterKnifeLib.butterKnife
