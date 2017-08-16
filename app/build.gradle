@@ -9,7 +9,6 @@ apply from: '../gradle/deps.gradle'
 android {
     signingConfigs {
         //This are th play store signing config.
-        //TODO replace with the original config.
         playStore {
             if (System.getenv("IS_CI_BUILD").equals("true")) {
                 //It is CI build, load it from the environment variables.
@@ -58,7 +57,7 @@ android {
         //strip other than english resources
         resConfigs "en"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kevalpatel2106.baseapplication.testUtils.CustomTestRunner"
     }
 
     buildTypes {
@@ -76,7 +75,7 @@ android {
             debuggable true
             jniDebuggable true
             renderscriptDebuggable false
-//            signingConfig signingConfigs.playStore
+            signingConfig signingConfigs.playStore
             minifyEnabled false
             zipAlignEnabled true
         }
@@ -87,9 +86,47 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    dexOptions {
+        preDexLibraries true
+    }
+
+    aaptOptions {
+        cruncherEnabled false
+    }
+}
+
+// Grant animation permissions to avoid test failure because of ui sync.
+task grantAnimationPermissions(type: Exec, dependsOn: 'installMock') {
+    group = 'test'
+    description = 'Grant permissions for testing.'
+
+    def absolutePath = file('..') // Get project absolute path
+    commandLine "$absolutePath/misc/set_animation_permissions.sh org.bookdash.android".split(" ")
+}
+
+// Source: http://stackoverflow.com/q/29908110/112705
+afterEvaluate {
+    // When launching individual tests from Android Studio, it seems that only the assemble tasks
+    // get called directly, not the install* versions
+    tasks.each { task ->
+        if (task.name.startsWith('assembleMockAndroidTest')) {
+            task.dependsOn grantAnimationPermissions
+        }
+    }
+}
+
+// Test Logging
+tasks.withType(Test) {
+    testLogging {
+        events "started", "passed", "skipped", "failed"
+    }
 }
 
 dependencies {
+    implementation ide.kotlin
+    implementation ide.constrainlayout
+
     implementation ide.kotlin
     implementation ide.constrainlayout
 
@@ -100,7 +137,11 @@ dependencies {
     androidTestImplementation(testLib.runner, excludeGrp)
     androidTestImplementation(testLib.esspressoIntents, excludeGrp)
     androidTestImplementation(testLib.contrib, excludeGrp)
+    androidTestImplementation(testLib.idling, excludeGrp)
     androidTestImplementation(testLib.uiAutomator, excludeGrp)
+    androidTestImplementation(testLib.mokitoCore, excludeGrp)
+    androidTestImplementation(testLib.mokitoAndroid, excludeGrp)
+    androidTestImplementation(testLib.mockWebServer, excludeGrp)
 
     //Butter knife
     implementation butterKnifeLib.butterKnife
@@ -108,6 +149,10 @@ dependencies {
 
     //GSON
     implementation otherLib.gson
+    implementation(otherLib.glide, excludeGrp)
+    implementation(otherLib.timber, excludeGrp)
+    debugImplementation(otherLib.shetho, excludeGrp)
+    debugImplementation(otherLib.shethoOkhttp, excludeGrp)
 
     //Retrofit
     implementation retrofitLib.retrofit

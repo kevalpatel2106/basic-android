@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Dashboard">
 
-    <com.baseapplication.base.BaseTextView
+    <com.kevalpatel2106.baseapplication.base.BaseTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"/>

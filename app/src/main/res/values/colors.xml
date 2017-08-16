@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <!--text colors-->
+    <color name="colorPrimaryText">#FFFFFF</color>
+    <color name="colorSecondaryText">#212121</color>
+
     <color name="divider">#B6B6B6</color>
 </resources>

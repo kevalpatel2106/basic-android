@@ -35,4 +35,8 @@
     <style name="AppTheme.Translucent.NoBackground">
         <item name="android:windowBackground">@null</item>
     </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorPrimaryText</item>
+    </style>
 </resources>

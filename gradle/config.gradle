@@ -4,7 +4,7 @@ ext {
             target          : 26,
             compile         : 26,
             buildToolVersion: '26.0.0',
-            applicationId   : 'com.baseapplication' //TODO Update package name
+            applicationId   : 'com.kevalpatel2106.baseapplication' //TODO Update package name
     ]
 
     versionConfig = [
